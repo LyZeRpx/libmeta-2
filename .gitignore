@@ -1,0 +1,13 @@
+libmeta.a
+*.o
+*~
+*#
+.vscode
+vgcore*
+*.out
+*.log
+*tmp*
+\#*#
+\#*
+main
+*.json
