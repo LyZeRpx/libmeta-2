@@ -1,0 +1,14 @@
+libmeta-pm.a
+*.o
+*~
+*#
+.vscode
+vgcore*
+*.out
+*.log
+*tmp*
+metamorph_lib
+my_libc
+\#*#
+\#*
+main
