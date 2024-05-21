@@ -5,9 +5,10 @@
 ** meta_rank1_offset.c
 */
 
-#include "meta_pm_typedefs.h"
+#include "../dependency/dependency.h"
+#include "meta_rank1.h"
 
-rank1_t meta_rank1_offset(rank1_t str, rank1_t delim)
+char *meta_rank1_offset(char *str, char *delim)
 {
     return str + meta_strlen(delim);
 }

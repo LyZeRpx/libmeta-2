@@ -1,21 +1,22 @@
 /*
-** EPITECH PROJECT, 2024
-** minishell
-** file description:
-** main.c
+** EPITECH PROJECT, 2023
+** meta_pm
+** File description:
+** meta_file_to_rank1.c
 */
 
 #include <fcntl.h>
 #include <unistd.h>
-#include "meta_typdefs.h"
+#include "meta_rank1.h"
+#include "../dependency/dependency.h"
 
-rank1_t meta_file_to_rank1(rank1_t filename)
+char *meta_file_to_rank1(char *filename)
 {
     int fd = open(filename, O_RDONLY);
     char buff[1000000];
-    rank1_t clone = NULL;
+    char *clone = NULL;
 
     read(fd, buff, 1000000);
-    clone = my_strdup(clone, buff);
+    clone = meta_strdup(clone, buff);
     return clone;
 }

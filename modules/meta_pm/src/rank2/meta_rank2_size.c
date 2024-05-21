@@ -6,8 +6,9 @@
 */
 
 #include <stddef.h>
+#include "meta_rank2.h"
 
-int meta_rank2_size(rank2_t dbl_array)
+int meta_rank2_size(char **dbl_array)
 {
     int i = 0;
 

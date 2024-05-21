@@ -6,16 +6,16 @@
 */
 
 #include <stddef.h>
-#include "my_string.h"
+#include "meta_rank2.h"
+#include "dependency.h"
 
-
-int meta_rank1_in_rank2_index(rank2_t array, rank1_t delim)
+int meta_rank1_in_rank2_index(char **array, char *delim)
 {
     int i = 0;
-    int delim_len = my_strlen(delim);
+    int delim_len = meta_strlen(delim);
 
     for (; array[i] != NULL; i++) {
-        if (my_strncmp(array[i], delim, delim_len) == 0) {
+        if (meta_strncmp(array[i], delim, delim_len) == 0) {
             return i;
         }
     }

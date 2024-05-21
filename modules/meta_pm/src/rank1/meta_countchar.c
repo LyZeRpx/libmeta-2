@@ -5,7 +5,7 @@
 ** minishell1.c
 */
 
-int meta_countchar(rank1_t array, char to_count)
+int meta_countchar(char *array, char to_count)
 {
     int count = 0;
 

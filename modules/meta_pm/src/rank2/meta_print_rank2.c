@@ -6,12 +6,13 @@
 */
 
 #include <stddef.h>
-#include "my_string.h"
+#include "meta_rank2.h"
+#include "dependency.h"
 
-void meta_print_rank2(rank2_t array)
+void meta_print_rank2(char **array)
 {
-    for (int i = 0; dbl_array[i] != NULL; i++) {
-        my_putstr(dbl_array[i]);
-        my_putchar('\n');
+    for (int i = 0; array[i] != NULL; i++) {
+        meta_putstr(array[i]);
+        meta_putchar('\n');
     }
 }

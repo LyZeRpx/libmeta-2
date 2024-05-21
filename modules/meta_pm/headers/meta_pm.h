@@ -7,8 +7,6 @@
 
 #ifndef META_PM_H
     #define META_PM_H
-#include "meta_typedefs.h"
-#include "meta_rank1.h"
-#include "meta_rank2.h"
-#include "meta_maccros.h"
+    #include "meta_rank1.h"
+    #include "meta_rank2.h"
 #endif

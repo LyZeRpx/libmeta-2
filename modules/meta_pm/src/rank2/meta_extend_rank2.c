@@ -8,12 +8,15 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "meta_typdefs.h"
+#include "meta_rank2.h"
 
-rank2_t meta_extend_rank2(rank2_t parent, size_t added_slots)
+char **meta_extend_rank2(char **parent, size_t added_slots)
 {
     size_t size = meta_rank2_size(parent) + added_slots;
-    rank2_t child = malloc(sizeof(char *) * size);
+    char **child = malloc(sizeof(char *) * size);
 
+    if (!child) {
+        return parent;
+    }
     return child;
 }
