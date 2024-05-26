@@ -5,7 +5,7 @@
 ** main.c
 */
 
-int meta_rank1cmp(const char *str1, const char *str2)
+int meta_strcmp(const char *str1, const char *str2)
 {
     int i = 0;
 

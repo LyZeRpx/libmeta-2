@@ -1,0 +1,46 @@
+##
+## EPITECH PROJECT, 2023
+## MAKEFILE
+## File description:
+## FILEMAKE
+##
+
+CC ?= gcc
+
+AR ?= ar
+
+RM = rm
+
+SRC 	=	src/meta_assets.c 							\
+			src/meta_window.c							\
+
+NAME = meta_csfml.a
+
+VPATH = ./headers
+
+WPATH = ${VPATH}/subheaders
+
+LDFALGS = L. $(LDLIBS)
+
+LDLIBS = -lcsfml-system -lcsfml-graphics -lcsfml-window
+
+CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -Wall -Wextra
+
+OBJ	= $(SRC:.c=.o)
+
+all:	$(NAME)
+
+$(NAME): $(OBJ)
+	ar -cq $(NAME) $(OBJ)
+clean:
+	$(RM) -f $(OBJ)
+
+fclean: clean
+	$(RM) -f $(NAME)
+
+re: fclean all
+
+debug: CFLAGS += -g3
+debug: re
+
+.PHONY: all clean fclean re debug \

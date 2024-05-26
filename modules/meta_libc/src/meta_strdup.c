@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "meta_libc.h"
 
-char *meta_rank1dup(char *dest, char *src)
+char *meta_strdup(char *dest, char *src)
 {
     int i;
 

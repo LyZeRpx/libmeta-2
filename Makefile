@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2023
-## MAKEFILE
+## libmeta
 ## File description:
-## FILEMAKE
+## Makefile
 ##
 
 AR ?= ar
@@ -16,6 +16,10 @@ NAME = libmeta.a
 VPATH = ./headers
 
 CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
+
+LDFLAGS = -L./libraries ${LDLIBS}
+
+LDLIBS = -l
 
 OBJ	= $(SRC:.c=.o)
 
