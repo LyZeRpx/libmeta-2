@@ -33,7 +33,7 @@ SRC 	=	src/dependency/meta_strlen.c			\
 			src/rank2/meta_rank2_clone.c			\
 
 
-NAME = libmeta_pm.a
+NAME = libmeta_ranks.a
 
 VPATH = ./headers
 
