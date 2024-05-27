@@ -7,7 +7,7 @@ an example of this is ```c
 #include <stdio.h>
 ```
 which is not only a header but a type of library injected into your code.
-```
+
 
 # Meta_modules
 ![alt text](image.png)
