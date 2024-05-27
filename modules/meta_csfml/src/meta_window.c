@@ -16,24 +16,33 @@ sfRenderWindow *meta_new_window(char *title)
     return window;
 }
 
-sfSprite *meta_set_window_background(const char *img_name)
+sfSprite *meta_set_window_background(const char *image_name, sfTexture *image)
 {
     const sfSprite *window_sprite = sfSprite_create();
-    const sfTexture *back_image = sfTexture_createFromFile(img_name, NULL);
 
-    sfSprite_setTexture(window_sprite, back_image, sfTrue);
+    sfSprite_setTexture(window_sprite, image, sfTrue);
     return window_sprite;
 }
 
-void meta_refresh_screen(sfRenderWindow *window, sfSprite *window_background)
+main_window_t *meta_init_window(char *title, char *filename)
 {
-    sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawSprite(window, window_background, NULL);
+    main_window_t *ptr = malloc(sizeof(main_window_t));
+
+    ptr->window = meta_new_window(title);
+    ptr->texture = sfTexture_createFromFile(filename, NULL);
+    ptr->window_sprite = meta_set_window_background(filename, ptr->texture);
+    return ptr;
 }
 
-void meta_kill_window(sfRenderWindow *window, sfSprite *back, sfTexture *img)
+void meta_refresh_screen(main_window_t *ptr)
 {
-    sfSprite_destroy(back);
-    sfText_destroy(img);
-    sfRenderWindow_destroy(window);
+    sfRenderWindow_clear(ptr->window, sfBlack);
+    sfRenderWindow_drawSprite(ptr->window, ptr->window_sprite, NULL);
+}
+
+void meta_kill_window(main_window_t *main_window)
+{
+    sfSprite_destroy(main_window->window_sprite);
+    sfTexture_destroy(main_window->texture);
+    sfRenderWindow_destroy(main_window->window);
 }
