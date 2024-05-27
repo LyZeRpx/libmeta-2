@@ -9,7 +9,7 @@ AR ?= ar
 
 RM = rm
 
-SRC 	=	main/main.c 							\
+SRC 	=	.hidden/easter_egg.c			\
 
 NAME = libmeta.a
 
@@ -17,16 +17,12 @@ VPATH = ./headers
 
 CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
 
-LDFLAGS = -L./libraries ${LDLIBS}
-
-LDLIBS = -l
-
 OBJ	= $(SRC:.c=.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -rc $(NAME) $(OBJ)
+	$(AR) -rcs $(NAME) $(OBJ)
 
 clean:
 	$(RM) -f $(OBJ)
