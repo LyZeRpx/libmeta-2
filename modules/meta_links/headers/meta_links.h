@@ -8,8 +8,7 @@
 #ifndef META_LINKS_H
     #define META_LINKS_H
 
-typedef struct meta_linked_list_s
-{
+typedef struct meta_linked_list_s {
     void *data;
     struct meta_linked_list_s *next;
 } meta_linked_list_t;

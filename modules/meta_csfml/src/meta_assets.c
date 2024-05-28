@@ -24,21 +24,21 @@ sfSprite **meta_create_assets(size_t asset_quantity, char *texture_name)
 
 void meta_free_assets(void **assets)
 {
-    for(size_t i = 0; assets[i] != NULL; i++) {
+    for (size_t i = 0; assets[i] != NULL; i++) {
         free(assets[i]);
     }
 }
 
 void meta_destroy_sprites(sfSprite **sprites)
 {
-    for(size_t i = 0; sprites[i]; i++) {
+    for (size_t i = 0; sprites[i]; i++) {
         sfSprite_destroy(sprites[i]);
     }
 }
 
 void meta_destroy_texture(sfTexture **textures)
 {
-    for(size_t i = 0; textures[i]; i++) {
+    for (size_t i = 0; textures[i]; i++) {
         sfTexture_destroy(textures[i]);
     }
 }

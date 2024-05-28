@@ -1,7 +1,7 @@
 /*
 ** EPITECH PROJECT, 2023
 ** libmeta
-** File description:    
+** File description:
 ** meta_links_file
 */
 
@@ -16,7 +16,5 @@ meta_linked_list_t *meta_new_list(void)
     if (!list)
         return NULL;
     list->next = NULL;
-    
     return NULL;
-    
 }
