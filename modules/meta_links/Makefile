@@ -11,7 +11,7 @@ AR ?= ar
 
 RM = rm
 
-SRC 	=	main/main.c 							\
+SRC 	=	src/meta_linked_lists.c				\
 
 NAME = ../../libmeta.a
 
