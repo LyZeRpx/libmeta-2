@@ -8,7 +8,8 @@
 #ifndef META_LIBC_H
     #define META_LIBC_H
     #include <stdbool.h>
-
+char *meta_strok(char *str, const char *delim);
+char *meta_strok_r(char *str; const char *delim; char **save);
 int meta_atoi(char const *str);
 int meta_is_prime(int nb);
 bool meta_isneg(int to_check);
