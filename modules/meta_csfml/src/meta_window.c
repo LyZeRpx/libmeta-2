@@ -5,6 +5,7 @@
 ** meta_new_window.c
 */
 
+#include <stdlib.h>
 #include "meta_csfml.h"
 
 sfRenderWindow *meta_new_window(char *title)
@@ -16,21 +17,14 @@ sfRenderWindow *meta_new_window(char *title)
     return window;
 }
 
-sfSprite *meta_set_window_background(const char *image_name, sfTexture *image)
-{
-    const sfSprite *window_sprite = sfSprite_create();
-
-    sfSprite_setTexture(window_sprite, image, sfTrue);
-    return window_sprite;
-}
-
 main_window_t *meta_init_window(char *title, char *filename)
 {
     main_window_t *ptr = malloc(sizeof(main_window_t));
 
     ptr->window = meta_new_window(title);
     ptr->texture = sfTexture_createFromFile(filename, NULL);
-    ptr->window_sprite = meta_set_window_background(filename, ptr->texture);
+    ptr->window_sprite = sfSprite_create();
+    sfSprite_setTexture(ptr->window_sprite, ptr->texture, sfTrue);
     return ptr;
 }
 

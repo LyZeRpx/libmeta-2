@@ -6,6 +6,7 @@
 */
 
 #include <unistd.h>
+#include <stdlib.h>
 #include <stddef.h>
 #include "meta_links.h"
 

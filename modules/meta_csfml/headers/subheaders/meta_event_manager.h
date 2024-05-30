@@ -8,5 +8,6 @@
 #ifndef META_EVENT_MANAGER
     #define META_EVENT_MANAGER
     #include <SFML/Graphics.h>
+    #include "meta_window.h"
 short int meta_event_handler(main_window_t *meta_win);
 #endif

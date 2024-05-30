@@ -14,7 +14,7 @@ RM = rm
 SRC 	=	src/meta_assets.c 							\
 			src/meta_window.c							\
 
-NAME = meta_csfml.a
+NAME = ../../libmeta.a
 
 VPATH = ./headers
 

@@ -13,3 +13,4 @@ main
 *.json
 libraires
 .dist
+test

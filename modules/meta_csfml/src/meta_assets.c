@@ -5,6 +5,7 @@
 ** meta_sprites.c
 */
 
+#include <stdlib.h>
 #include "meta_csfml.h"
 
 sfSprite **meta_create_assets(size_t asset_quantity, char *texture_name)
@@ -13,7 +14,7 @@ sfSprite **meta_create_assets(size_t asset_quantity, char *texture_name)
     sfSprite **assets = malloc(sizeof(sfSprite *) * asset_quantity + 1);
 
     if (!assets) {
-        return;
+        return NULL;
     }
     for (size_t i = 0; i <= asset_quantity; i++) {
         assets[i] = sfSprite_create();
