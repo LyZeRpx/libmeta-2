@@ -31,9 +31,17 @@ $(NAME): $(OBJ)
 	$(AR) -rcs $(NAME) $(OBJ)
 
 clean:
+	$(MAKE) clean -C modules/meta_libc
+	$(MAKE) clean -C modules/meta_links
+	$(MAKE) clean -C modules/meta_ranks
+	$(MAKE) clean -C modules/meta_csfml
 	$(RM) -f $(OBJ)
 
 fclean: clean
+	$(MAKE) fclean -C modules/meta_libc
+	$(MAKE) fclean -C modules/meta_links
+	$(MAKE) fclean -C modules/meta_ranks
+	$(MAKE) fclean -C modules/meta_csfml
 	$(RM) -f $(NAME)
 
 re: fclean all

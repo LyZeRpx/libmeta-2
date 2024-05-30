@@ -22,9 +22,9 @@ static int count_limiters(char *str, char target)
     return count + 1;
 }
 
-char **meta_promote_str(str_t str, const char limiter)
+char **meta_promote_str(char *str, const char limiter)
 {
-    rank2_t word_array = NULL;
+    char **word_array = NULL;
     int y = 0;
     int x = 0;
     int i = 0;
