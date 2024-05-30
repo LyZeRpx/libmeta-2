@@ -9,7 +9,7 @@
 #include <stdarg.h>
 #include <stdint.h>
 
-short int meta_event_handler(main_window_t *meta_win)
+short int meta_event_handler(window_t *meta_win)
 {
     sfEvent event;
 

@@ -9,5 +9,6 @@
     #define META_EVENT_MANAGER
     #include <SFML/Graphics.h>
     #include "meta_window.h"
-short int meta_event_handler(main_window_t *meta_win);
+short int meta_event_handler(window_t *meta_win);
+sfBool meta_detect_collision(meta_assets_t object_1, meta_assets_t object_2);
 #endif

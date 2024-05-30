@@ -17,9 +17,9 @@ sfRenderWindow *meta_new_window(char *title)
     return window;
 }
 
-main_window_t *meta_init_window(char *title, char *filename)
+window_t *meta_init_window(char *title, char *filename)
 {
-    main_window_t *ptr = malloc(sizeof(main_window_t));
+    window_t *ptr = malloc(sizeof(window_t));
 
     ptr->window = meta_new_window(title);
     ptr->texture = sfTexture_createFromFile(filename, NULL);
@@ -28,13 +28,13 @@ main_window_t *meta_init_window(char *title, char *filename)
     return ptr;
 }
 
-void meta_refresh_screen(main_window_t *ptr)
+void meta_refresh_screen(window_t *ptr)
 {
     sfRenderWindow_clear(ptr->window, sfBlack);
     sfRenderWindow_drawSprite(ptr->window, ptr->window_sprite, NULL);
 }
 
-void meta_kill_window(main_window_t *main_window)
+void meta_kill_window(window_t *main_window)
 {
     sfSprite_destroy(main_window->window_sprite);
     sfTexture_destroy(main_window->texture);

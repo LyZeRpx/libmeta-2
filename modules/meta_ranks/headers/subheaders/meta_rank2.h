@@ -14,5 +14,5 @@ void meta_print_rank2(char **array);
 char *meta_rank1_in_rank2(char **array, char *delim);
 int meta_rank1_in_rank2_index(char **array, char *delim);
 char **meta_rank2_clone(char **to_clone);
-int meta_rank2_size(char **dbl_array);
+size_t meta_rank2_size(char **dbl_array);
 #endif

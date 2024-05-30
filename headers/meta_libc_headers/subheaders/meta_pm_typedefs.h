@@ -7,7 +7,7 @@
 
 #ifndef META_TYPEDEFS_H
     #define META_TYPEDEFS_H
-typedef char *str_t;
+typedef char *rank1_t;
 typedef char **rank2_t;
 typedef char ***rank3_t;
 typedef char ****rank4_t;
