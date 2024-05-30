@@ -5,6 +5,8 @@
 ## Makefile
 ##
 
+CC ?= gcc
+
 AR ?= ar
 
 RM = rm
@@ -22,6 +24,10 @@ OBJ	= $(SRC:.c=.o)
 all:	$(NAME)
 
 $(NAME): $(OBJ)
+	$(MAKE) -C modules/meta_libc
+	$(MAKE) -C modules/meta_links
+	$(MAKE) -C modules/meta_ranks
+	$(MAKE) -C modules/meta_csfml
 	$(AR) -rcs $(NAME) $(OBJ)
 
 clean:

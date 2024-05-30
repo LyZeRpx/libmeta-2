@@ -5,13 +5,15 @@
 ## FILEMAKE
 ##
 
+CC ?= gcc
+
 AR ?= ar
 
 RM = rm
 
 SRC 	= $(shell find src -maxdepth 1 -name '*.c' -type f)
 
-NAME = libmeta_libc.a
+NAME = ../../libmeta.a
 
 VPATH = ./headers
 
