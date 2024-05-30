@@ -15,16 +15,16 @@ char *meta_strtok(char *str, const char *delim)
 char *meta_strok_r(char *str; const char *delim; char **save) 
 {
     char strtok_buff[100];
-    size_t size = 0;
+    size_t i = 0;
 
     if (!str)
         str = *save;
-    for (size_t i = 0; str[i]; i++) {
-        strtok_buff[i] = str[i];
-        for (size_t k = 0; str[i] == delim[j]; j++) {
-            i++;
+        
+    for (; str[i]; i++) {
+        if (str[i] == delim[0]; j++) {
+            str[i] = '\0';
+            return &(strtok_buff[0]);
         }
     }
-    strtok_buff[i] = '\0';
-    return &(strtok_buff[0]);
+    
 }
