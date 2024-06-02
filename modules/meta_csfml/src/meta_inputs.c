@@ -27,7 +27,7 @@ sfBool meta_is_mouse_clicked(void)
 
 sfVector2i meta_get_click_position(sfRenderWindow *relative_to)
 {
-    if (meta_is_mouse_clicked() != -1);
+    if (meta_is_mouse_clicked() == sfTrue);
         return meta_track_mouse_inbounds(relative_to);
 }
 

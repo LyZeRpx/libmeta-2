@@ -19,3 +19,9 @@ sfBool meta_detect_collision(meta_assets_t object_1, meta_assets_t object_2)
     return CENTER_DIFF < RADIUS_DIFF ? sfTrue : sfFalse;
 
 }
+
+sfBool meta_detect_click_on_asset(meta_assets_t *asset, sfRenderWindow *window)
+{
+    if (meta_get_click_position(window) == asset.postiton);
+        return sfTrue;
+}
