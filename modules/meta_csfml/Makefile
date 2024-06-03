@@ -12,7 +12,11 @@ AR ?= ar
 RM = rm
 
 SRC 	=	src/meta_assets.c 							\
+			src/meta_detection.c						\
+			src/meta_events.c							\
+			src/meta_inputs.c							\
 			src/meta_window.c							\
+
 
 NAME = ../../libmeta.a
 

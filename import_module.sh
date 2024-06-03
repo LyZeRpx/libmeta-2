@@ -1,6 +1,6 @@
 #!/bin/bash
 export REPO="${HOME}/libmeta/"
-export MODULES="${REPO}/modules/"
+export MODULES="${REPO}modules/"
 LIBDIR=./libraries
 LDFLAGS='LDFLAGS = -L./libraries ${LDLIBS}'
 LDLIBS="LDLIBS ="
