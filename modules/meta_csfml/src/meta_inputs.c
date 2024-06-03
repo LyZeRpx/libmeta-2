@@ -7,7 +7,7 @@
 
 #include "meta_utils.h"
 
-sfVector2i meta_track_mouse_inbounds(sfRenderWindow *relative_to)
+sfVector2i meta_track_mouse(sfRenderWindow *relative_to)
 {
     return sfMouse_getPositionRenderWindow(relative_to);
 }
@@ -25,10 +25,13 @@ sfBool meta_is_mouse_clicked(void)
     return sfMouse_isButtonPressed(sfMouseLeft);
 }
 
-sfVector2i meta_get_click_position(sfRenderWindow *relative_to)
+sfVector2i meta_get_click_position(sfRenderWindow *window)
 {
-    if (meta_is_mouse_clicked() == sfTrue);
-        return meta_track_mouse_inbounds(relative_to);
+    sfVector2i err;
+
+    err.x = 84000;
+    err.y = 84000;
+    return meta_is_mouse_clicked() == sfTrue ? meta_track_mouse(window) : err;
 }
 
 sfKeyCode meta_get_key_input(void)

@@ -8,8 +8,10 @@
 #ifndef META_ASSETS_H
     #define META_ASSETS_H
     #include <SFML/Graphics.h>
-#define CENTER_DIFF object_1.postiton - object_2.postiton
-#define RADIUS_DIFF ((object_1_texture_size / 2) + (object_2_texture_size / 2))
+#define X_DIFF object_2.position.x - object_1.position.x
+#define Y_DIFF object_2.position.y - object_1.position.y
+#define RADIUS_SUM_X object_1_texture_size.x + object_2_texture_size.x
+#define RADIUS_SUM_Y object_1_texture_size.y + object_2_texture_size.y
 typedef struct meta_assets_s
 {
     sfSprite *asset;
