@@ -25,5 +25,4 @@ fi
 #adds libflag to your Makefile
 STOCK=$LDLIBS
 LDLIBS="$LDLIBS -l$module_name"
-echo "${LDLIBS}"
 sed -i "s|$STOCK|$LDLIBS|g" Makefile
