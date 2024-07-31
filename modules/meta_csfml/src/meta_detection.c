@@ -9,8 +9,6 @@
 #include "meta_inputs.h"
 #include "meta_assets.h"
 
-
-
 sfBool meta_detect_collision(meta_assets_t object_1, meta_assets_t object_2)
 {
     sfVector2u object_1_texture_size = sfTexture_getSize(object_1.texture);
