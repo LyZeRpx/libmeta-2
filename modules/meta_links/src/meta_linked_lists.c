@@ -17,5 +17,15 @@ meta_linked_list_t *meta_new_list(void)
     if (!list)
         return NULL;
     list->next = NULL;
-    return NULL;
+    return list;
+}
+
+void meta_add_node(meta_linked_list_t *list, void *data)
+{
+    list->next = malloc(sizeof(meta_linked_list_t));
+    if (!(list->next))
+        return NULL;
+    next = list;
+    list->data = data;
+    
 }
