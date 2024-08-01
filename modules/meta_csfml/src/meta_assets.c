@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2023
+** EPITECH PROJECT, 2024
 ** meta_csfml
 ** File description:
 ** meta_sprites.c
