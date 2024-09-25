@@ -19,7 +19,6 @@ VPATH = ./headers
 
 CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
 
-
 OBJ	= $(SRC:.c=.o)
 
 all:	$(NAME)

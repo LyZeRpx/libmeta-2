@@ -8,24 +8,35 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
 #include "meta_links.h"
 
-meta_linked_list_t *meta_new_list(void)
+meta_linked_list_t *meta_create_node(int data)
 {
-    meta_linked_list_t *list = malloc(sizeof(meta_linked_list_t));
+    meta_linked_list_t *new_head = malloc(sizeof(meta_linked_list_t));
 
-    if (!list)
+    if (!new_head)
         return NULL;
-    list->next = NULL;
-    return list;
+    new_head->data = data;
+    new_head->next = NULL;
+    return new_head;
 }
 
-void meta_add_node(meta_linked_list_t *list, void *data)
+meta_linked_list_t *meta_push_front(meta_linked_list_t *head, int data)
 {
-    list->next = malloc(sizeof(meta_linked_list_t));
-    if (!(list->next))
-        return NULL;
-    next = list;
-    list->data = data;
-    
+    meta_linked_list_t *new_head = meta_create_node(data);
+
+    new_head->next = head;
+    return new_head;
+}
+
+void meta_dump_list(meta_linked_list_t *head)
+{
+    meta_linked_list_t *current = head;
+
+    while (current != NULL) {
+        dprintf(1, "data == %d, ", current->data);
+        current = current->next;
+    }
+    dprintf(1, "\n");
 }

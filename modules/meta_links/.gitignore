@@ -11,3 +11,4 @@ tests
 metamorph_lib
 my_libc
 .dist
+main.c
