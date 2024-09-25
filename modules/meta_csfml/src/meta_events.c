@@ -5,9 +5,9 @@
 ** meta_events.c
 */
 
-#include "meta_csfml.h"
 #include <stdarg.h>
 #include <stdint.h>
+#include "meta_csfml.h"
 
 short int meta_event_handler(window_t *meta_win)
 {
