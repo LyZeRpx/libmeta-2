@@ -15,6 +15,8 @@ SRC 	=	src/meta_linked_lists.c				\
 
 NAME = ../../libmeta.a
 
+MODULE_NAME = ./meta_links.a
+
 VPATH = ./headers
 
 CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
@@ -37,4 +39,4 @@ re: fclean all
 debug: CFLAGS += -g3
 debug: re
 
-.PHONY: all clean fclean re debug \
+.PHONY: all clean fclean module re debug \

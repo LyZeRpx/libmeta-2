@@ -35,7 +35,7 @@ void meta_dump_list(meta_linked_list_t *head)
     meta_linked_list_t *current = head;
 
     while (current != NULL) {
-        dprintf(1, "data == %d, ", current->data);
+        dprintf(1, "data == %d\n", current->data);
         current = current->next;
     }
     dprintf(1, "\n");

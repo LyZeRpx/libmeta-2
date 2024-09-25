@@ -17,6 +17,10 @@ NAME = libmeta.a
 
 VPATH = ./headers
 
+LDFLAGS = -L./libraries ${LDLIBS}
+LDFLAGS = -L./libraries ${LDLIBS}
+LDFLAGS = -L./libraries ${LDLIBS}
+LDFLAGS = -L./libraries ${LDLIBS}
 CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
 
 OBJ	= $(SRC:.c=.o)
