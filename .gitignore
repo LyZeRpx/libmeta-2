@@ -9,7 +9,7 @@ vgcore*
 *tmp*
 \#*#
 \#*
-main
+main.c
 *.json
 libraires
 .dist

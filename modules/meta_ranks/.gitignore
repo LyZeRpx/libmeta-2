@@ -11,4 +11,4 @@ metamorph_lib
 meta_libc
 \#*#
 \#*
-main
+main.c

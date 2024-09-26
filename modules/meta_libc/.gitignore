@@ -13,3 +13,4 @@ meta_libc
 \#*
 *main
 *.a
+main.c
