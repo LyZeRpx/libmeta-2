@@ -1,4 +1,4 @@
-libmeta-pm.a
+libmeta_ranks.a
 *.o
 *~
 *#
