@@ -16,7 +16,7 @@ int meta_mprintf(char const *format, ...);
 int meta_printf(char const *format, ...);
 int meta_put_nbr(int nb);
 int meta_strlen(char const *str);
-char *meta_strdup(char *dest, char *src);
+char *meta_strdup(char *src);
 int meta_putchar(char c);
 int meta_putstr(char const *str);
 char **meta_promote_str(char *str, const char limiter);
