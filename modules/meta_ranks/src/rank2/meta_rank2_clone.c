@@ -19,7 +19,7 @@ char **meta_rank2_clone(char **to_clone)
 
     clone = malloc(sizeof(char *) * (size + 1));
     for (; to_clone[i] != NULL; i++) {
-        clone[i] = meta_strdup(clone[i], to_clone[i]);
+        clone[i] = meta_strdup(to_clone[i]);
     }
     return clone;
 }

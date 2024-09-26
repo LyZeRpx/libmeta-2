@@ -17,6 +17,6 @@ char *meta_file_to_rank1(char *filename)
     char *clone = NULL;
 
     read(fd, buff, 1000000);
-    clone = meta_strdup(clone, buff);
+    clone = meta_strdup(buff);
     return clone;
 }
