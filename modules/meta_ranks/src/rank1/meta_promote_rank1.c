@@ -1,45 +1,67 @@
 /*
 ** EPITECH PROJECT, 2024
-** meta_sokoban
+** MY_PROJECT
 ** File description:
-** src/meta_sokoban.c
+** DESCRIPTION
 */
 
-#include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include "meta_libc.h"
+#include <stddef.h>
+#include <stdbool.h>
 
-static int count_limiters(char *str, char target)
+#define IS_ALPHA ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+#define IS_NUM (c >= '0' && c <= '9')
+
+char *my_strtok(char **str);
+int my_strlen(char *str);
+
+bool is_alphanum(char c)
 {
-    int count = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == target) {
-            count++;
-        }
-    }
-    return count + 1;
+    return (IS_ALPHA || IS_NUM);
 }
 
-char **meta_promote_str(char *str, const char limiter)
+static size_t count_delims(char const *str)
 {
-    char **word_array = NULL;
-    int y = 0;
-    int x = 0;
-    int i = 0;
+    size_t count = 0;
 
-    word_array = malloc(sizeof(char *) * (count_limiters(str, limiter) + 1));
-    for (; y != count_limiters(str, limiter); y++) {
-        word_array[y] = malloc((sizeof(char) * (meta_strlen(str) + 1)));
-        for (; str[i] != limiter && str[i] != '\0'; i++) {
-            word_array[y][x] = str[i];
-            x++;
-        }
-        for (; str[i] == limiter; i++);
-        word_array[y][x] = '\0';
-        x = 0;
+    for (size_t i = 0; str[i]; i++) {
+        if (!is_alphanum(str[i]))
+            count++;
     }
-    word_array[y] = NULL;
+    return count;
+}
+
+char *my_strtok(char **str)
+{
+    size_t i = 0;
+    size_t j = 0;
+    char *buff = NULL;
+
+    if (str == NULL) {
+        i = 0;
+    }
+    buff = malloc(sizeof(char) * my_strlen(*str) + 1);
+    for (; (*str)[i] && is_alphanum((*str)[i]); i++) {
+        buff[j] = (*str)[i];
+        j++;
+    }
+    for (; !is_alphanum((*str)[i]); i++);
+    *str += i;
+    return buff;
+}
+
+char **my_str_to_word_array(char const *str)
+{
+    size_t size = count_delims(str);
+    char **word_array = malloc(sizeof(char *) * (size + 1));
+    char **adr = (char **)&str;
+    size_t i = 0;
+
+    if (!word_array)
+        return NULL;
+    for (; i <= size; i++) {
+        word_array[i] = my_strtok(adr);
+    }
+    word_array[i] = NULL;
     return word_array;
 }
