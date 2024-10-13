@@ -1,28 +1,28 @@
 /*
 ** EPITECH PROJECT, 2024
-** meta_sokoban
+** MY_PROJECT
 ** File description:
-** src/meta_sokoban.c
+** DESCRIPTION
 */
 
+#include <stdlib.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "dependency.h"
+#include "meta_libc.h"
 
 static int count_limiters(char *str, char target)
 {
-    int count = 0;
+    size_t count = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == target) {
+    for (size_t i = 0; str[i]; i++) {
+        if (!is_alphanum(str[i]))
             count++;
-        }
     }
-    return count + 1;
+    return count;
 }
 
-char **meta_promote_rank1(char *str, const char limiter)
+char **meta_promote_str(char *str, const char limiter)
 {
     char **word_array = NULL;
     int y = 0;
@@ -40,6 +40,6 @@ char **meta_promote_rank1(char *str, const char limiter)
         word_array[y][x] = '\0';
         x = 0;
     }
-    word_array[y] = NULL;
+    word_array[i] = NULL;
     return word_array;
 }
