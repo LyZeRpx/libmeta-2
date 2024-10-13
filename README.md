@@ -1,4 +1,4 @@
-# libmeta
+# libmeta-2.1
 A modular static library for c projects
 # Modular and static ???
 libmeta does not work like a shared-object (.so) file.
