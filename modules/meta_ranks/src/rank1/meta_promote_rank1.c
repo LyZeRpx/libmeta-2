@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "meta_libc.h"
+#include "dependency.h"
 
 static int count_limiters(char *str, char target)
 {
@@ -22,7 +22,7 @@ static int count_limiters(char *str, char target)
     return count + 1;
 }
 
-char **meta_promote_str(char *str, const char limiter)
+char **meta_promote_rank1(char *str, const char limiter)
 {
     char **word_array = NULL;
     int y = 0;
