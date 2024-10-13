@@ -9,4 +9,6 @@
     #define META_PM_H
     #include "subheaders/meta_rank1.h"
     #include "subheaders/meta_rank2.h"
+    #define IS_ALPHA(c) ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+    #define IS_NUM(i) (i >= '0' && i <= '9')
 #endif

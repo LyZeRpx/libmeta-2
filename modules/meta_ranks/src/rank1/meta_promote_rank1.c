@@ -1,45 +1,74 @@
 /*
 ** EPITECH PROJECT, 2024
-** MY_PROJECT
+** meta_PROJECT
 ** File description:
 ** DESCRIPTION
 */
 
 #include <stdlib.h>
-#include <stddef.h>
-#include <stdlib.h>
 #include <stdio.h>
-#include "meta_libc.h"
+#include <stddef.h>
+#include <stdbool.h>
+#include "meta_ranks.h"
 
-static int count_limiters(char *str, char target)
+bool is_alphanum(char c)
+{
+    return (IS_ALPHA(c) || IS_NUM(c));
+}
+
+static void skip_word(char const *str, size_t *i)
+{
+    for (; str[*i] && is_alphanum(str[*i]); (*i)++);
+}
+
+static size_t count_delims(char const *str)
 {
     size_t count = 0;
+    size_t i = 0;
 
-    for (size_t i = 0; str[i]; i++) {
-        if (!is_alphanum(str[i]))
+    while (str[i]) {
+        if (is_alphanum(str[i])) {
+            skip_word(str, &i);
             count++;
+        } else {
+            i++;
+        }
     }
     return count;
 }
 
-char **meta_promote_str(char *str, const char limiter)
+char *meta_strtok(char **str)
 {
-    char **word_array = NULL;
-    int y = 0;
-    int x = 0;
-    int i = 0;
+    size_t i = 0;
+    size_t j = 0;
+    char *buff = NULL;
 
-    word_array = malloc(sizeof(char *) * (count_limiters(str, limiter) + 1));
-    for (; y != count_limiters(str, limiter); y++) {
-        word_array[y] = malloc((sizeof(char) * (meta_strlen(str) + 1)));
-        for (; str[i] != limiter && str[i] != '\0'; i++) {
-            word_array[y][x] = str[i];
-            x++;
-        }
-        for (; str[i] == limiter; i++);
-        word_array[y][x] = '\0';
-        x = 0;
+    if (str == NULL) {
+        i = 0;
     }
+    buff = malloc(sizeof(char) * meta_strlen(*str) + 1);
+    if (!buff)
+        return NULL;
+    for (; (*str)[i] && is_alphanum((*str)[i]); i++) {
+        buff[j] = (*str)[i];
+        j++;
+    }
+    for (; !is_alphanum((*str)[i]); i++);
+    *str += i;
+    return buff;
+}
+
+char **meta_str_to_word_array(char const *str)
+{
+    size_t size = count_delims(str);
+    char **word_array = malloc(sizeof(char *) * (size + 1));
+    char **adr = (char **)&str;
+    size_t i = 0;
+
+    if (!word_array || !str)
+        return NULL;
+    for (; i < size; i++)
+        word_array[i] = meta_strtok(adr);
     word_array[i] = NULL;
     return word_array;
 }
