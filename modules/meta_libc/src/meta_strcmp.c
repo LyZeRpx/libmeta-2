@@ -1,20 +1,16 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell_meta_string
+** meta_PROJECT
 ** File description:
-** main.c
+** DESCRIPTION
 */
 
-int meta_strcmp(const char *str1, const char *str2)
+#include <stddef.h>
+
+int meta_strcmp(char const *s1, char const *s2)
 {
     int i = 0;
 
-    while (str1[i] != '\0' && str2[i] != '\0') {
-        if (str1[i] == str2[i]) {
-            i++;
-        } else {
-            return str1[i] - str2[i];
-        }
-    }
-    return str1[i] - str2[i];
+    for (; s1[i] == s2[i] && s1[i] != '\0'; i++);
+    return s1[i] - s2[i];
 }

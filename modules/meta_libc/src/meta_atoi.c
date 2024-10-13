@@ -1,26 +1,36 @@
 /*
 ** EPITECH PROJECT, 2024
-** getnbr
+** meta_PROJECT
 ** File description:
-** gets nbr
+** DESCRIPTION
 */
+
+#include <stdbool.h>
+#include <limits.h>
+#include <stdio.h>
+
+static bool is_out_of_bounds(signed long long nb)
+{
+    return (nb > INT_MAX);
+}
+
+static bool meta_is_digit(char c)
+{
+    return (c >= '0' && c <= '9');
+}
 
 int meta_atoi(char const *str)
 {
-    int buffer = 0;
+    signed long long result = 0;
+    int i = 0;
+    int neg = 1;
 
-    for (int i = 0; str[i]; i++) {
-        if (str[i] >= 48 && str[i] <= 57) {
-            buffer = ((buffer * 10) + (str[i] - 48));
-        }
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            return buffer;
-        }
+    for (; !(meta_is_digit(str[i])) && str[i] != '\0'; i++) {
+        if (str[i] == '-')
+            neg *= (-1);
     }
-    for (int j = 0; str[j]; j++) {
-        if (str[j] == '-' && str[j + 1] >= 48 && str[j + 1] <= 57) {
-            buffer *= -1;
-        }
+    for (; meta_is_digit(str[i]) && str[i] != '\0'; i++) {
+        result = (result * 10) + (str[i] - 48);
     }
-    return buffer;
+    return !is_out_of_bounds(result) ? result * neg : 0;
 }

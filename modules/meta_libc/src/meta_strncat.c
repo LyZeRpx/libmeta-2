@@ -7,8 +7,8 @@
 
 #include "meta_libc.h"
 
-char *meta_strcat(char *dest, char const *src)
+char *meta_strncat(char *dest, char const *src, int n)
 {
-    dest = meta_strcpy(dest + meta_strlen(dest), (char *)src);
+    dest = meta_strncpy(dest + meta_strlen(src), (char *)src, n);
     return dest;
 }

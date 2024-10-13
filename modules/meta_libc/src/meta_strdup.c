@@ -1,21 +1,23 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell
+** meta_PROJECT
 ** File description:
-** minishell1.c
+** DESCRIPTION
 */
 
 #include <stdlib.h>
 #include "meta_libc.h"
 
-char *meta_strdup(char *src)
+char *meta_strdup(char *str)
 {
-    int i;
-    char *dest = malloc(sizeof(char) * (meta_strlen(src)) + 1);
+    char *dup = malloc(sizeof(char) * meta_strlen(str) + 1);
+    int i = 0;
 
-    for (i = 0; src[i] != '\0'; i++) {
-        dest[i] = src[i];
+    if (!str || !dup)
+        return NULL;
+    for (; str[i]; i++) {
+        dup[i] = str[i];
     }
-    dest[i] = src[i];
-    return dest;
+    str[i] = '\0';
+    return str;
 }
