@@ -15,9 +15,6 @@ char *meta_strdup(char *str)
 
     if (!str || !dup)
         return NULL;
-    for (; str[i]; i++) {
-        dup[i] = str[i];
-    }
-    str[i] = '\0';
+    meta_strcpy(dup, str);
     return str;
 }
