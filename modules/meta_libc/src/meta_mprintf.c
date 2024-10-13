@@ -13,6 +13,9 @@ static void get_flag(char flag, va_list arg)
     if (flag == 's') {
         meta_putstr(va_arg(arg, char *));
     }
+    if (flag == 'e') {
+        meta_puterr(va_arg(arg, char *));
+    }
     if (flag == 'd' || flag == 'i') {
         meta_put_nbr(va_arg(arg, int));
     }
