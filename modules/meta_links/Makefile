@@ -19,7 +19,7 @@ MODULE_NAME = ./meta_links.a
 
 VPATH = ./headers
 
-CPPFLAGS = -iquote $(VPATH) -Wall -Wextra
+CPPFLAGS = -iquote $(VPATH) -Wall -Wextra -pedantic
 
 OBJ	= $(SRC:.c=.o)
 

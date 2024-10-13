@@ -13,6 +13,7 @@ int meta_is_prime(int nb);
 bool meta_isneg(int to_check);
 int meta_mprintf(char const *format, ...);
 int meta_put_nbr(int nb);
+char *meta_strncpy(char *dest, char *src, int n);
 int meta_putchar(char c);
 int meta_putstr(char const *str);
 char *meta_strcat(char *dest, char const *src);

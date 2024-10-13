@@ -28,7 +28,7 @@ LDFALGS = L. $(LDLIBS)
 
 LDLIBS = -lcsfml-system -lcsfml-graphics -lcsfml-window
 
-CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -Wall -Wextra
+CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -Wall -Wextra -pedantic
 
 OBJ	= $(SRC:.c=.o)
 

@@ -11,7 +11,6 @@
 char *meta_strdup(char *str)
 {
     char *dup = malloc(sizeof(char) * meta_strlen(str) + 1);
-    int i = 0;
 
     if (!str || !dup)
         return NULL;

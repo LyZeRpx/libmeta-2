@@ -41,7 +41,7 @@ WPATH = $(VPATH)/subheaders
 
 DPATH = src/dependency
 
-CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -iquote $(DPATH)
+CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -iquote $(DPATH) -pedantic
 
 CFLAGS = -Wall -Wextra
 

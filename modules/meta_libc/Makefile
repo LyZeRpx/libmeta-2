@@ -19,7 +19,7 @@ VPATH = ./headers
 
 HPATH = ./headers/subheaders
 
-CPPFLAGS = -iquote $(VPATH) -iquote $(HPATH) -Wall -Wextra
+CPPFLAGS = -iquote $(VPATH) -iquote $(HPATH) -Wall -Wextra -pedantic
 
 OBJ	= $(SRC:.c=.o)
 

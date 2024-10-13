@@ -10,6 +10,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "meta_ranks.h"
+#include "dependency.h"
 
 bool is_alphanum(char c)
 {
