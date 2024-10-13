@@ -48,6 +48,18 @@ fclean: clean
 
 re: fclean all
 
+ranks :
+	$(MAKE) standalone -C modules/meta_ranks
+
+csfml :
+	$(MAKE) standalone -C modules/meta_csfml
+
+libc :
+	$(MAKE) standalone -C modules/meta_libc
+
+links :
+	$(MAKE) standalone -C modules/meta_links
+
 debug: CFLAGS += -g3
 debug: re
 

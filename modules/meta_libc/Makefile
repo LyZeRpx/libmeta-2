@@ -36,6 +36,9 @@ fclean: clean
 
 re: fclean all
 
+standalone: NAME = ../../libmeta_libc.a
+standalone: all
+
 debug: CFLAGS += -g3
 debug: re
 

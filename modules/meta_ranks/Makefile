@@ -59,6 +59,9 @@ fclean: clean
 
 re: fclean all
 
+standalone: NAME = ../../libmeta_ranks.a
+standalone: all
+
 debug: CFLAGS += -g3
 debug: re
 
