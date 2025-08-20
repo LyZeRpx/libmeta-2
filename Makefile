@@ -11,11 +11,8 @@ CC 	?= gcc
 
 MODULES	= 	modules
 
-LIBC 	=	meta_libc
-
-LINKED	= meta_links
-
-CSFML = meta_csfml
+LIBS	=	$(MODULES)/meta_libc	\
+			$(MODULES)/meta_links
 
 NAME 	= 	libmeta.a
 
@@ -25,29 +22,26 @@ CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
 CPPFLAGS = 	-iquote $(VPATH)
 
-all:
-	$(MAKE) -C $(MODULES)/$(LIBC)
-	$(MAKE) -C $(MODULES)/$(LINKED)
-	$(MAKE) -C $(MODULES)/$(CSFML)
+do-%:
+	@for dir in $(LIBS); do 			 \
+		$(MAKE) -C $$dir || exit $$?; 	 \
+	done
 
-clean:
-	$(MAKE) clean -C $(MODULES)/$(LIBC)
-	$(MAKE) clean -C $(MODULES)/$(LINKED)
-	$(MAKE) clean -C $(MODULES)/$(CSFML)
+all: do-all $(NAME)
+
+clean: do-clean
 	$(RM) $(OBJ)
 
-fclean: clean
-	$(MAKE) fclean -C $(MODULES)/$(LIBC)
-	$(MAKE) fclean -C $(MODULES)/$(LINKED)
-	$(MAKE) fclean -C $(MODULES)/$(CSFML)
+fclean: do-fclean
 	$(RM) $(NAME)
 
 re: fclean all
 
 debug: CFLAGS += -g3
-debug: re
-	$(MAKE) debug -C $(MODULES)/$(LIBC)
-	$(MAKE) debug -C $(MODULES)/$(LINKED)
-	$(MAKE) debug -C $(MODULES)/$(CSFML)
+debug: do-debug re
 
-.PHONY: all clean fclean re debug \
+tests_run:
+	@echo "hi"
+
+.PHONY: all clean fclean re debug tests_run do-%
+

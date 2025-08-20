@@ -8,11 +8,14 @@
 CC ?= gcc
 
 SRC 	=	src/meta_atonbr.c						\
+			src/meta_nbrtoa.c						\
+			src/meta_fetch_var.c					\
 			src/printers/meta_mprintf.c				\
 			src/printers/meta_putchar.c				\
 			src/printers/meta_puterr.c				\
 			src/printers/meta_putnbr.c				\
 			src/printers/meta_putstr.c				\
+			src/printers/meta_print_tab.c			\
 			src/string/meta_strcat.c				\
 			src/string/meta_strcmp.c				\
 			src/string/meta_strcpy.c				\
@@ -21,8 +24,9 @@ SRC 	=	src/meta_atonbr.c						\
 			src/string/meta_strncat.c				\
 			src/string/meta_strncmp.c				\
 			src/string/meta_strncpy.c				\
+			src/string/meta_arrfuse.c				\
 			src/string/meta_strndup.c				\
-			src/meta_nbrtoa.c						\
+			src/string/meta_strnrw.c				\
 			src/string/meta_strstr.c				\
 			src/string/meta_strsplt.c
 
@@ -53,11 +57,5 @@ re: fclean all
 
 debug: CFLAGS += -g3
 debug: re
-
-tests_run: CPPFLAGS += --coverage -lcriterion
-tests_run: $(OBJ)
-	$(CC) $(CFLAGS) -o unit_tests $(OBJ) tests/unit_tests.c $(CPPFLAGS)
-	./unit_tests
-	$(RM) unit_tests
 
 .PHONY: all clean fclean re debug tests_run	\

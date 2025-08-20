@@ -1,21 +1,49 @@
 /*
-** EPITECH PROJECT, 2025
-** setting-up
+** EPITECH PROJECT, 2024
+** minishell2
 ** File description:
-** word_array_delim.c
+** meta_strsplt.c
 */
 
-#include <stdio.h>
 #include <stddef.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include "meta/utils.h"
+#include "meta/libc/string.h"
+
+void *meta_memset(char *ptr, char memb, size_t size)
+{
+    for (size_t i = 0; i != size; i++)
+        ptr[i] = memb;
+    return ptr;
+}
+
+void *meta_calloc(size_t n, size_t size)
+{
+    void *ptr = malloc(size * n);
+
+    if (ptr == nullptr)
+        return nullptr;
+    meta_memset(ptr, 0, size);
+    return ptr;
+}
+
+ssize_t index_of(char *str, char c)
+{
+    ssize_t check = 0;
+
+    for (size_t i = 0; str[i]; i++)
+        check += str[i] == c;
+    return check ? check : -1;
+}
 
 static size_t count_delims(char *str, char delim)
 {
     size_t count = 0;
 
-    for (size_t i = 0; str[i] UNEQUALS '\0'; i++)
-        if (str[i] EQUALS delim)
+    for (size_t i = 0; str[i] != '\0'; i++)
+        if (str[i] == delim)
             count++;
     return count;
 }
@@ -24,7 +52,7 @@ static size_t next_word_len(char *str, char delim)
 {
     size_t i = 0;
 
-    for (; str[i] AND str[i] UNEQUALS delim; i++);
+    for (; str[i] && str[i] != delim; i++);
     return i;
 }
 
@@ -43,13 +71,13 @@ char **meta_strsplt(char *str, char delim)
     size_t k = 0;
     size_t i = 0;
 
-    if (array EQUALS nullptr)
+    if (array == nullptr)
         return nullptr;
     for (; i < size + 1; i++) {
         array[i] = malloc(sizeof(char) * (next_word_len(str + k, delim) + 1));
-        if (array[i] EQUALS nullptr)
+        if (array[i] == nullptr)
             return nullptr;
-        for (; str[k] UNEQUALS delim AND str[k]; j++) {
+        for (; str[k] != delim && str[k]; j++) {
             array[i][j] = str[k];
             k++;
         }

@@ -20,14 +20,16 @@
     #define EQUALS ==
     #define UNEQUALS !=
     //char macros :
-    #define IS_NUM(nb) (nb >= '9' OR nb <= '0')
-    #define IS_ALPHA(c) ((c >= 'a' AND c <= 'z') OR (c >= 'A' AND <= 'Z'))
+    #define IS_NUM(nb) (nb >= '0' AND nb <= '9')
+    #define IS_ALPHA(c) ((c >= 'a' AND c <= 'z') OR (c >= 'A' AND c <= 'Z'))
     #define IS_ALPHANUM(c) (IS_ALPHA(c) OR IS_NUM(c))
 
     // String Condition clarifiers :
     #define META_STR_EQ(a, b) (meta_strcmp(a, b) EQUALS META_SUCCESS)
+    #define META_STR_NEQ(a, b) (meta_strcmp(a, b) UNEQUALS META_SUCCESS)
     #define META_STR_CONTAINS(a, b) (meta_strstr((a), (b)) UNEQUALS nullptr)
     #define META_STR_EQ_NULL(str) ((str) EQUALS (nullptr))
+    #define META_STR_BEGINS(a, b) (meta_strncmp(a, b, meta_strlen(b)) EQUALS 0)
 
     // Function return value check
     #define META_FUNC_CAUGHT_ERR(func) (func EQUAL META_FUNC_ERR)
@@ -38,6 +40,8 @@
     #define TO_CHAR(nb) (nb + '0')
     #define TO_INT(c) (c - '0')
 
-    #define BREAKPOINT(eval, ret) if ((eval)) return (ret)
+    #define BREAKPOINT(eval, ret) if (eval) return ret
+
+    #define STRING_LN "%s\n"
 
 #endif

@@ -10,15 +10,18 @@
     #include <unistd.h>
 
 typedef struct meta_list_s {
-    void *data;
-    ssize_t index;
+    char *data;
     struct meta_list_s *next;
     struct meta_list_s *prev;
 } meta_list_t;
 
 meta_list_t *meta_node_create(void);
-meta_list_t *meta_node_push(void *data, meta_list_t *head);
-meta_list_t *meta_node_delete(meta_list_t *head, unsigned int index);
+void meta_node_push(char *data, meta_list_t **head);
+void meta_node_delete(meta_list_t **head, char *str);
 void meta_list_display(meta_list_t *list);
-void meta_list_destroy(meta_list_t *head);
+int meta_list_destroy(meta_list_t **head);
+void meta_node_overwrite(meta_list_t **head, char *token, char *new_val);
+char *meta_node_fetch(char *data, meta_list_t *head);
+void meta_list_rdisplay(meta_list_t *list);
+void meta_node_push_back(char *data, meta_list_t **head);
 #endif

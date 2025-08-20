@@ -8,6 +8,8 @@
 #ifndef META_STRING_H
     #define META_STRING_H
     #include <unistd.h>
+
+
 char *meta_strcpy(char *dest, const char *src);
 char *meta_strncpy(char *dest, const char *src, unsigned int n);
 
@@ -24,4 +26,12 @@ ssize_t meta_strlen(char const *str);
 
 ssize_t meta_strcmp(char const *a, char const *b);
 ssize_t meta_strncmp(char const *a, char const *b, unsigned int n);
+
+char **meta_strsplt(char *str, char delim);
+
+void meta_strnrw(unsigned int fwd, char **str, unsigned bkwd);
+
+char *meta_fetch_var(char *needle, char **src);
+char *meta_arrfuse(char **array);
+
 #endif

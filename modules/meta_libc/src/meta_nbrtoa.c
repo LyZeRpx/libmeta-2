@@ -38,10 +38,9 @@ char *meta_nbtoa(long long nb)
     for (; META_NONZERO(unit + 1); i++) {
         div = meta_pow(10, unit);
         str[i] = TO_CHAR(hold / div);
-        hold  %= div;
+        hold %= div;
         unit--;
     }
     str[i] = '\0';
     return str;
 }
-

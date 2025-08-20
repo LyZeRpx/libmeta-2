@@ -23,5 +23,6 @@ int meta_putnbrfd(int fd, int nb);
 int meta_mprintf(const char *format, ...);
 int meta_mdprintf(int fd, const char *format, ...);
 
-char **meta_strsplt(char *str, char delim);
+
+void meta_print_tab(char *const *tab);
 #endif
